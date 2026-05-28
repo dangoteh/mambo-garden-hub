@@ -30,9 +30,9 @@ export function Footer() {
         <div>
           <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider">Contact</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/80">
-            <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> hello@mambonami.com</li>
-            <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> +254 700 000 000</li>
-            <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Nairobi, Kenya</li>
+            <li className="flex items-center gap-2"><Mail className="w-4 h-4" /><span>hello@mambonami.com</span></li>
+            <li className="flex items-center gap-2"><Phone className="w-4 h-4" /><span>+254 700 000 000</span></li>
+            <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /><span>Nairobi, Kenya</span></li>
           </ul>
         </div>
       </div>
