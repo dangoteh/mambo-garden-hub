@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sprout, ShoppingBasket, Truck, ShieldCheck, Star, Quote } from "lucide-react";
+import { ArrowRight, Sprout, ShoppingBasket, Truck, ShieldCheck, Star, Quote, Store, Building2, Users } from "lucide-react";
 import heroImg from "@/assets/hero-farm.jpg";
 import farmerImg from "@/assets/farmer.jpg";
 import produceImg from "@/assets/produce.jpg";
@@ -26,18 +26,18 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-primary-dark/30" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 text-primary-foreground">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl animate-fade-in-up">
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary/20 backdrop-blur px-4 py-1.5 text-xs font-medium text-secondary mb-6 border border-secondary/30">
-              <Sprout className="w-3.5 h-3.5" /> Fresh • Local • Direct
+              <Sprout className="w-3.5 h-3.5 animate-float" /> Farmers • Retailers • Consumers
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-black leading-[1.05] mb-6">
-              Fresh from <span className="text-secondary italic">farm</span> to your table.
+              From <span className="text-secondary italic">farm</span> to retailers, restaurants &amp; homes.
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/85 mb-10 max-w-xl">
-              MAMBONAMI connects you directly with Kenyan farmers — fair prices, transparent sourcing, doorstep delivery.
+              MAMBONAMI is Kenya's direct-trade marketplace — connecting smallholder farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow">
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
               <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 backdrop-blur border border-primary-foreground/20 px-7 py-3.5 font-semibold hover:bg-primary-foreground/20 transition">
@@ -47,6 +47,18 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Retailer / B2B band */}
+      <section className="bg-primary-dark text-primary-foreground overflow-hidden">
+        <div className="flex gap-12 py-4 animate-marquee whitespace-nowrap text-sm uppercase tracking-[0.25em] font-semibold text-secondary">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex gap-12 shrink-0">
+              <span>🥬 Fresh Daily</span><span>🏪 Trusted by 300+ Retailers</span><span>🍽️ Restaurant Supply</span><span>🚚 Bulk &amp; Wholesale</span><span>🌍 47 Counties</span><span>💳 M-Pesa Escrow</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Stats */}
       <section className="border-b border-border bg-background">
@@ -72,13 +84,14 @@ function Home() {
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">A market built for everyone</h2>
             <p className="text-muted-foreground text-lg">No middlemen. No markups. Just fair value moving from soil to supper.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { Icon: Sprout, title: "For Farmers", body: "List harvests, get fair prices, receive secure M-Pesa payments straight to your phone." },
-              { Icon: ShoppingBasket, title: "For Buyers", body: "Browse seasonal produce by location, order in seconds, and pay only when delivered." },
-              { Icon: Truck, title: "For Transporters", body: "Earn money delivering verified orders along routes you already travel." },
-            ].map(({ Icon, title, body }) => (
-              <div key={title} className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-glow transition-shadow border border-border">
+              { Icon: Store, title: "For Retailers", body: "Stock your shelves with consistent, traceable produce. Bulk pricing, scheduled deliveries, invoiced." },
+              { Icon: Building2, title: "For Restaurants & Hotels", body: "Reliable wholesale supply for kitchens — chef-grade quality with same-day procurement." },
+              { Icon: ShoppingBasket, title: "For Consumers", body: "Browse seasonal produce by location, order in seconds, and pay only when delivered." },
+            ].map(({ Icon, title, body }, i) => (
+              <div key={title} className="bg-card rounded-2xl p-8 shadow-soft hover-lift border border-border animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-primary-foreground" />
                 </div>
@@ -87,6 +100,7 @@ function Home() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
