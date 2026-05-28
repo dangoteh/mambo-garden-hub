@@ -152,16 +152,42 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-          <Quote className="w-10 h-10 text-secondary mx-auto mb-6" />
-          <p className="font-display text-2xl md:text-3xl font-medium leading-snug">
-            "MAMBONAMI changed how my family eats. Fresher food, better prices, and I know I'm supporting farmers directly."
-          </p>
-          <p className="mt-6 text-muted-foreground">— Achieng, Nairobi</p>
+      {/* Testimonials */}
+      <section className="py-24 bg-gradient-warm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="text-center mb-14">
+            <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Voices from the chain</span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mt-3">Loved by farmers, retailers &amp; families.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { q: "My income doubled in 3 months. I now sell straight to retailers in Nairobi without a broker.", who: "Wanjiku", role: "Smallholder Farmer, Nyeri", Icon: Sprout },
+              { q: "We've cut our produce sourcing costs by 28% and our shelves are fresher than ever. Game-changer for our duka.", who: "Mwangi", role: "Retailer, Naivas-affiliated shop", Icon: Store },
+              { q: "Reliable, traceable supply for our kitchen. Same-day delivery means zero waste and happier guests.", who: "Chef Achieng", role: "Executive Chef, Nairobi Hotel", Icon: Building2 },
+            ].map(({ q, who, role, Icon }, i) => (
+              <div key={who} className="bg-card rounded-2xl p-7 border border-border shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 120}ms` }}>
+                <Quote className="w-8 h-8 text-secondary mb-4" />
+                <p className="text-base leading-relaxed mb-6">"{q}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-10 h-10 rounded-full bg-gradient-hero flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-sm">{who}</div>
+                    <div className="text-xs text-muted-foreground">{role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-muted-foreground text-sm">
+            <span className="flex items-center gap-2"><Users className="w-4 h-4 text-primary" /> 300+ retail partners</span>
+            <span className="flex items-center gap-2"><Truck className="w-4 h-4 text-primary" /> 24h average delivery</span>
+            <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary" /> Escrow-protected payments</span>
+          </div>
         </div>
       </section>
+
 
       {/* CTA */}
       <section className="pb-24">
