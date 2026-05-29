@@ -20,6 +20,26 @@ export const Route = createFileRoute("/_site/")({
   component: Home,
 });
 
+function CountUpStat({ value, label }: { value: string; label: string }) {
+  const { display, ref } = useCountUp(value, 2000);
+  return (
+    <div className="glass rounded-2xl px-4 py-3 text-center">
+      <div ref={ref} className="font-display text-2xl font-bold text-secondary">{display}</div>
+      <div className="text-[11px] uppercase tracking-wider text-primary-foreground/80">{label}</div>
+    </div>
+  );
+}
+
+function CountUpBigStat({ value, label }: { value: string; label: string }) {
+  const { display, ref } = useCountUp(value, 2500);
+  return (
+    <div>
+      <div ref={ref} className="font-display text-3xl md:text-4xl font-bold text-primary">{display}</div>
+      <div className="text-sm text-muted-foreground mt-1">{label}</div>
+    </div>
+  );
+}
+
 function Home() {
   return (
     <>
