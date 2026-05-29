@@ -34,7 +34,7 @@ function Home() {
               From <span className="text-secondary italic">farm</span> to retailers, restaurants &amp; homes.
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/85 mb-10 max-w-xl">
-              MAMBONAMI is Kenya's direct-trade marketplace — connecting smallholder farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
+              MAMBONAMI is Kenya's direct-trade marketplace — connecting farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
@@ -121,7 +121,7 @@ function Home() {
             <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Empowering Growers</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">Real farmers. Real impact.</h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              We work with smallholder cooperatives across Kenya — verifying farms, training on best practices, and ensuring every shilling reaches the people who grew the food.
+              We work with farming cooperatives across Kenya — verifying farms, training on best practices, and ensuring every shilling reaches the people who grew the food.
             </p>
             <ul className="space-y-3">
               {["Verified cooperative membership", "Transparent escrow payments", "Real-time harvest tracking", "Direct buyer relationships"].map((f) => (
