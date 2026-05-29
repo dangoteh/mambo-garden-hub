@@ -3,6 +3,7 @@ import { ArrowRight, Sprout, ShoppingBasket, Truck, ShieldCheck, Star, Quote, St
 import heroImg from "@/assets/hero-farm.jpg";
 import farmerImg from "@/assets/farmer.jpg";
 import produceImg from "@/assets/produce.jpg";
+import { Particles } from "@/components/site/Particles";
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -23,11 +24,17 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={heroImg} alt="" className="w-full h-full object-cover" width={1600} height={1100} />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-primary-dark/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-primary-dark/40" />
         </div>
+        {/* Particle network overlay */}
+        <Particles className="absolute inset-0 -z-[5] w-full h-full pointer-events-none" color="rgba(255,255,255,0.7)" count={80} />
+        {/* Floating glass orbs */}
+        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl animate-float -z-[5]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-primary/40 blur-3xl animate-float -z-[5]" style={{ animationDelay: "1.5s" }} />
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 text-primary-foreground">
           <div className="max-w-2xl animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/20 backdrop-blur px-4 py-1.5 text-xs font-medium text-secondary mb-6 border border-secondary/30">
+            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-secondary mb-6">
               <Sprout className="w-3.5 h-3.5 animate-float" /> Farmers • Retailers • Consumers
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-black leading-[1.05] mb-6">
@@ -40,13 +47,28 @@ function Home() {
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 backdrop-blur border border-primary-foreground/20 px-7 py-3.5 font-semibold hover:bg-primary-foreground/20 transition">
+              <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full glass text-primary-foreground px-7 py-3.5 font-semibold hover:bg-white/20 transition">
                 How it works
               </Link>
+            </div>
+
+            {/* Glass stat strip */}
+            <div className="mt-12 grid grid-cols-3 gap-3 max-w-lg">
+              {[
+                { n: "2.5K+", l: "Farmers" },
+                { n: "300+", l: "Retailers" },
+                { n: "47", l: "Counties" },
+              ].map((s) => (
+                <div key={s.l} className="glass rounded-2xl px-4 py-3 text-center">
+                  <div className="font-display text-2xl font-bold text-secondary">{s.n}</div>
+                  <div className="text-[11px] uppercase tracking-wider text-primary-foreground/80">{s.l}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Retailer / B2B band */}
       <section className="bg-primary-dark text-primary-foreground overflow-hidden">
