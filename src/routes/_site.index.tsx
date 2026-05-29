@@ -113,7 +113,7 @@ function Home() {
               { Icon: Building2, title: "For Restaurants & Hotels", body: "Reliable wholesale supply for kitchens — chef-grade quality with same-day procurement." },
               { Icon: ShoppingBasket, title: "For Consumers", body: "Browse seasonal produce by location, order in seconds, and pay only when delivered." },
             ].map(({ Icon, title, body }, i) => (
-              <div key={title} className="bg-card rounded-2xl p-8 shadow-soft hover-lift border border-border animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
+              <div key={title} className="glass-card rounded-2xl p-8 shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-primary-foreground" />
                 </div>
@@ -131,7 +131,7 @@ function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img src={farmerImg} alt="Smallholder farmer with fresh harvest" loading="lazy" width={1200} height={1400} className="rounded-3xl shadow-glow object-cover w-full aspect-[5/6]" />
-            <div className="absolute -bottom-6 -right-6 bg-card rounded-2xl p-5 shadow-soft border border-border max-w-xs hidden sm:block">
+            <div className="absolute -bottom-6 -right-6 glass-card rounded-2xl p-5 shadow-glow max-w-xs hidden sm:block">
               <div className="flex gap-1 text-secondary mb-2">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
@@ -187,7 +187,7 @@ function Home() {
               { q: "We've cut our produce sourcing costs by 28% and our shelves are fresher than ever. Game-changer for our duka.", who: "Mwangi", role: "Retailer, Naivas-affiliated shop", Icon: Store },
               { q: "Reliable, traceable supply for our kitchen. Same-day delivery means zero waste and happier guests.", who: "Chef Achieng", role: "Executive Chef, Nairobi Hotel", Icon: Building2 },
             ].map(({ q, who, role, Icon }, i) => (
-              <div key={who} className="bg-card rounded-2xl p-7 border border-border shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 120}ms` }}>
+              <div key={who} className="glass-card rounded-2xl p-7 shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 120}ms` }}>
                 <Quote className="w-8 h-8 text-secondary mb-4" />
                 <p className="text-base leading-relaxed mb-6">"{q}"</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-border">
