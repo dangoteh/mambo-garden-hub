@@ -81,15 +81,9 @@ function Home() {
                 { n: "2.5K+", l: "Farmers" },
                 { n: "300+", l: "Retailers" },
                 { n: "47", l: "Counties" },
-              ].map((s) => {
-                const { display, ref } = useCountUp(s.n, 2000);
-                return (
-                  <div key={s.l} className="glass rounded-2xl px-4 py-3 text-center">
-                    <div ref={ref} className="font-display text-2xl font-bold text-secondary">{display}</div>
-                    <div className="text-[11px] uppercase tracking-wider text-primary-foreground/80">{s.l}</div>
-                  </div>
-                );
-              })}
+              ].map((s) => (
+                <CountUpStat key={s.l} value={s.n} label={s.l} />
+              ))}
             </div>
           </div>
         </div>
@@ -116,15 +110,9 @@ function Home() {
             { n: "15K+", l: "Happy customers" },
             { n: "47", l: "Counties served" },
             { n: "24h", l: "Avg. delivery time" },
-          ].map((s) => {
-            const { display, ref } = useCountUp(s.n, 2500);
-            return (
-              <div key={s.l}>
-                <div ref={ref} className="font-display text-3xl md:text-4xl font-bold text-primary">{display}</div>
-                <div className="text-sm text-muted-foreground mt-1">{s.l}</div>
-              </div>
-            );
-          })}
+          ].map((s) => (
+            <CountUpBigStat key={s.l} value={s.n} label={s.l} />
+          ))}
         </div>
       </section>
 
