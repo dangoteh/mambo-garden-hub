@@ -3,6 +3,7 @@ import { ArrowRight, Sprout, ShoppingBasket, Truck, ShieldCheck, Star, Quote, St
 import heroImg from "@/assets/hero-farm.jpg";
 import farmerImg from "@/assets/farmer.jpg";
 import produceImg from "@/assets/produce.jpg";
+import { Particles } from "@/components/site/Particles";
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -23,30 +24,51 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={heroImg} alt="" className="w-full h-full object-cover" width={1600} height={1100} />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-primary-dark/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-primary-dark/40" />
         </div>
+        {/* Particle network overlay */}
+        <Particles className="absolute inset-0 -z-[5] w-full h-full pointer-events-none" color="rgba(255,255,255,0.7)" count={80} />
+        {/* Floating glass orbs */}
+        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-secondary/30 blur-3xl animate-float -z-[5]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-primary/40 blur-3xl animate-float -z-[5]" style={{ animationDelay: "1.5s" }} />
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 text-primary-foreground">
           <div className="max-w-2xl animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/20 backdrop-blur px-4 py-1.5 text-xs font-medium text-secondary mb-6 border border-secondary/30">
+            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-secondary mb-6">
               <Sprout className="w-3.5 h-3.5 animate-float" /> Farmers • Retailers • Consumers
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-black leading-[1.05] mb-6">
               From <span className="text-secondary italic">farm</span> to retailers, restaurants &amp; homes.
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/85 mb-10 max-w-xl">
-              MAMBONAMI is Kenya's direct-trade marketplace — connecting smallholder farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
+              MAMBONAMI is Kenya's direct-trade marketplace — connecting farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 backdrop-blur border border-primary-foreground/20 px-7 py-3.5 font-semibold hover:bg-primary-foreground/20 transition">
+              <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full glass text-primary-foreground px-7 py-3.5 font-semibold hover:bg-white/20 transition">
                 How it works
               </Link>
+            </div>
+
+            {/* Glass stat strip */}
+            <div className="mt-12 grid grid-cols-3 gap-3 max-w-lg">
+              {[
+                { n: "2.5K+", l: "Farmers" },
+                { n: "300+", l: "Retailers" },
+                { n: "47", l: "Counties" },
+              ].map((s) => (
+                <div key={s.l} className="glass rounded-2xl px-4 py-3 text-center">
+                  <div className="font-display text-2xl font-bold text-secondary">{s.n}</div>
+                  <div className="text-[11px] uppercase tracking-wider text-primary-foreground/80">{s.l}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Retailer / B2B band */}
       <section className="bg-primary-dark text-primary-foreground overflow-hidden">
@@ -91,7 +113,7 @@ function Home() {
               { Icon: Building2, title: "For Restaurants & Hotels", body: "Reliable wholesale supply for kitchens — chef-grade quality with same-day procurement." },
               { Icon: ShoppingBasket, title: "For Consumers", body: "Browse seasonal produce by location, order in seconds, and pay only when delivered." },
             ].map(({ Icon, title, body }, i) => (
-              <div key={title} className="bg-card rounded-2xl p-8 shadow-soft hover-lift border border-border animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
+              <div key={title} className="glass-card rounded-2xl p-8 shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-primary-foreground" />
                 </div>
@@ -109,7 +131,7 @@ function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img src={farmerImg} alt="Smallholder farmer with fresh harvest" loading="lazy" width={1200} height={1400} className="rounded-3xl shadow-glow object-cover w-full aspect-[5/6]" />
-            <div className="absolute -bottom-6 -right-6 bg-card rounded-2xl p-5 shadow-soft border border-border max-w-xs hidden sm:block">
+            <div className="absolute -bottom-6 -right-6 glass-card rounded-2xl p-5 shadow-glow max-w-xs hidden sm:block">
               <div className="flex gap-1 text-secondary mb-2">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
@@ -121,7 +143,7 @@ function Home() {
             <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Empowering Growers</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">Real farmers. Real impact.</h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              We work with smallholder cooperatives across Kenya — verifying farms, training on best practices, and ensuring every shilling reaches the people who grew the food.
+              We work with farming cooperatives across Kenya — verifying farms, training on best practices, and ensuring every shilling reaches the people who grew the food.
             </p>
             <ul className="space-y-3">
               {["Verified cooperative membership", "Transparent escrow payments", "Real-time harvest tracking", "Direct buyer relationships"].map((f) => (
@@ -165,7 +187,7 @@ function Home() {
               { q: "We've cut our produce sourcing costs by 28% and our shelves are fresher than ever. Game-changer for our duka.", who: "Mwangi", role: "Retailer, Naivas-affiliated shop", Icon: Store },
               { q: "Reliable, traceable supply for our kitchen. Same-day delivery means zero waste and happier guests.", who: "Chef Achieng", role: "Executive Chef, Nairobi Hotel", Icon: Building2 },
             ].map(({ q, who, role, Icon }, i) => (
-              <div key={who} className="bg-card rounded-2xl p-7 border border-border shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 120}ms` }}>
+              <div key={who} className="glass-card rounded-2xl p-7 shadow-soft hover-lift animate-fade-in-up" style={{ animationDelay: `${i * 120}ms` }}>
                 <Quote className="w-8 h-8 text-secondary mb-4" />
                 <p className="text-base leading-relaxed mb-6">"{q}"</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-border">

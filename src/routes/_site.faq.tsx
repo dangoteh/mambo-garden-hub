@@ -18,7 +18,7 @@ const faqs = [
   { q: "How do I place an order?", a: "Browse produce on our app, add items to your cart and pay via M-Pesa. Your order ships within 24 hours of harvest." },
   { q: "What areas do you deliver to?", a: "We currently serve 47 counties across Kenya with same-day or next-day delivery depending on your location." },
   { q: "How are payments protected?", a: "All payments are held in secure M-Pesa escrow. Farmers are paid only when you confirm delivery." },
-  { q: "Can I become a farmer partner?", a: "Yes! Visit our Contact page to apply. We work with verified cooperatives and individual smallholders." },
+  { q: "Can I become a farmer partner?", a: "Yes! Visit our Contact page to apply. We work with verified cooperatives and independent farmers of every scale." },
   { q: "What if my order has an issue?", a: "Contact support within 24 hours of delivery and our team will resolve disputes quickly and fairly." },
   { q: "Are prices fixed or negotiable?", a: "Prices are set transparently by farmers based on harvest quality and market rates — no hidden markups." },
 ];
