@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sprout, ShoppingBasket, Truck, ShieldCheck, Star, Quote, Store, Building2, Users, Heart, Salad } from "lucide-react";
+import { notifyComingSoon } from "@/lib/coming-soon";
 import heroImg from "@/assets/hero-farm.jpg";
 import farmerImg from "@/assets/farmer.jpg";
 import produceImg from "@/assets/produce.jpg";

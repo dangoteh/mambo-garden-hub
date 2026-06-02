@@ -13,6 +13,7 @@ import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteTermsRouteImport } from './routes/_site.terms'
 import { Route as SiteServicesRouteImport } from './routes/_site.services'
+import { Route as SiteProductsRouteImport } from './routes/_site.products'
 import { Route as SitePrivacyRouteImport } from './routes/_site.privacy'
 import { Route as SiteHowItWorksRouteImport } from './routes/_site.how-it-works'
 import { Route as SiteFaqRouteImport } from './routes/_site.faq'
@@ -36,6 +37,11 @@ const SiteTermsRoute = SiteTermsRouteImport.update({
 const SiteServicesRoute = SiteServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteProductsRoute = SiteProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
   getParentRoute: () => SiteRoute,
 } as any)
 const SitePrivacyRoute = SitePrivacyRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof SiteFaqRoute
   '/how-it-works': typeof SiteHowItWorksRoute
   '/privacy': typeof SitePrivacyRoute
+  '/products': typeof SiteProductsRoute
   '/services': typeof SiteServicesRoute
   '/terms': typeof SiteTermsRoute
 }
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/faq': typeof SiteFaqRoute
   '/how-it-works': typeof SiteHowItWorksRoute
   '/privacy': typeof SitePrivacyRoute
+  '/products': typeof SiteProductsRoute
   '/services': typeof SiteServicesRoute
   '/terms': typeof SiteTermsRoute
   '/': typeof SiteIndexRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/_site/faq': typeof SiteFaqRoute
   '/_site/how-it-works': typeof SiteHowItWorksRoute
   '/_site/privacy': typeof SitePrivacyRoute
+  '/_site/products': typeof SiteProductsRoute
   '/_site/services': typeof SiteServicesRoute
   '/_site/terms': typeof SiteTermsRoute
   '/_site/': typeof SiteIndexRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/how-it-works'
     | '/privacy'
+    | '/products'
     | '/services'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/how-it-works'
     | '/privacy'
+    | '/products'
     | '/services'
     | '/terms'
     | '/'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
     | '/_site/faq'
     | '/_site/how-it-works'
     | '/_site/privacy'
+    | '/_site/products'
     | '/_site/services'
     | '/_site/terms'
     | '/_site/'
@@ -162,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof SiteServicesRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/products': {
+      id: '/_site/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof SiteProductsRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/privacy': {
@@ -208,6 +227,7 @@ interface SiteRouteChildren {
   SiteFaqRoute: typeof SiteFaqRoute
   SiteHowItWorksRoute: typeof SiteHowItWorksRoute
   SitePrivacyRoute: typeof SitePrivacyRoute
+  SiteProductsRoute: typeof SiteProductsRoute
   SiteServicesRoute: typeof SiteServicesRoute
   SiteTermsRoute: typeof SiteTermsRoute
   SiteIndexRoute: typeof SiteIndexRoute
@@ -219,6 +239,7 @@ const SiteRouteChildren: SiteRouteChildren = {
   SiteFaqRoute: SiteFaqRoute,
   SiteHowItWorksRoute: SiteHowItWorksRoute,
   SitePrivacyRoute: SitePrivacyRoute,
+  SiteProductsRoute: SiteProductsRoute,
   SiteServicesRoute: SiteServicesRoute,
   SiteTermsRoute: SiteTermsRoute,
   SiteIndexRoute: SiteIndexRoute,
