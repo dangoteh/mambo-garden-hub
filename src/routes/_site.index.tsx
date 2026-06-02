@@ -68,9 +68,9 @@ function Home() {
               MAMBONAMI is Kenya's direct-trade marketplace — connecting farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
+              <button type="button" onClick={notifyComingSoon} className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:bg-secondary/90 transition shadow-glow hover:scale-105 duration-300">
                 Get Started <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full glass text-primary-foreground px-7 py-3.5 font-semibold hover:bg-white/20 transition">
                 How it works
               </Link>
@@ -254,9 +254,9 @@ function Home() {
           <div className="bg-gradient-hero rounded-3xl px-8 py-16 md:p-16 text-center text-primary-foreground shadow-glow">
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Ready to taste the difference?</h2>
             <p className="text-primary-foreground/85 text-lg max-w-xl mx-auto mb-8">Join thousands experiencing farm-fresh produce, delivered with care.</p>
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-8 py-4 font-semibold hover:bg-secondary/90 transition">
+            <button type="button" onClick={notifyComingSoon} className="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-8 py-4 font-semibold hover:bg-secondary/90 transition">
               Get Started Today <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
