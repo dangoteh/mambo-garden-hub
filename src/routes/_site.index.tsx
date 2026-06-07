@@ -314,3 +314,51 @@ function Home() {
     </>
   );
 }
+
+function NewsletterSection() {
+  const [email, setEmail] = useState("");
+  const [done, setDone] = useState(false);
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      toast.error("Please enter a valid email");
+      return;
+    }
+    setDone(true);
+    toast.success("You're on the list! 🌱", { description: "We'll email you the moment MAMBONAMI launches." });
+    setEmail("");
+  };
+  return (
+    <section className="py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="glass-card rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center shadow-soft">
+          <div>
+            <span className="inline-flex items-center gap-2 text-secondary font-semibold uppercase tracking-wider text-sm">
+              <Mail className="w-4 h-4" /> Early access
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mt-3 mb-3">Be first in line when we launch.</h2>
+            <p className="text-muted-foreground">Get seasonal harvest updates, farmer stories, and a 10% welcome credit for your first order.</p>
+          </div>
+          <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              className="flex-1 rounded-full bg-background border border-border px-5 py-3.5 outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+              aria-label="Email address"
+            />
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 font-semibold hover:bg-primary-dark hover:scale-105 transition shadow-soft"
+            >
+              {done ? <><CheckCircle2 className="w-4 h-4" /> Subscribed</> : <>Notify me <ArrowRight className="w-4 h-4" /></>}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
