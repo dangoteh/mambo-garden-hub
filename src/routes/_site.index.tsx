@@ -64,7 +64,7 @@ function Home() {
               <Sprout className="w-3.5 h-3.5 animate-float" /> Farmers • Retailers • Consumers
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-black leading-[1.05] mb-6">
-              From <span className="text-secondary italic">farm</span> to retailers, restaurants &amp; homes.
+              From <span className="text-gradient animate-gradient bg-gradient-hero italic">farm</span> to retailers, restaurants &amp; homes.
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/85 mb-10 max-w-xl">
               MAMBONAMI is Kenya's direct-trade marketplace — connecting farmers with retailers, hotels, restaurants, and families. Fair prices, transparent sourcing, doorstep delivery.
