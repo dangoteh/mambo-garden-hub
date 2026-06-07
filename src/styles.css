@@ -229,4 +229,29 @@
   border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
+@utility text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@utility animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-40px) scale(1.08); }
+  66% { transform: translate(-25px,30px) scale(0.95); }
+}
+@utility animate-blob { animation: blob 14s ease-in-out infinite; }
+
+
+
 
